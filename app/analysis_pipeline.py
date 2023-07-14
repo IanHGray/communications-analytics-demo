@@ -1,6 +1,7 @@
 import json
 import pandas as pd
 import math
+import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem.wordnet import WordNetLemmatizer
@@ -20,6 +21,12 @@ import pyLDAvis
 import pyLDAvis.lda_model
 import plotly.graph_objects as go
 import colorlover as cl
+
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+nltk.download('punkt')
+nltk.download('vader_lexicon')
 
 sns.set(style='whitegrid', context='talk')
 lemmatizer = WordNetLemmatizer()
