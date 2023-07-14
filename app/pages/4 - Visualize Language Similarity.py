@@ -36,7 +36,7 @@ try:
             pipeline.save_network()
         return pipeline
 
-    """
+    
     with st.form("run network"):
         col1, col2, col3 = st.columns(3)
         with col1:
@@ -49,17 +49,18 @@ try:
                 minimum_similarity = st.slider("Minimum Similarity for Linkage", min_value = 0.3, max_value =0.99, value = 0.45)
 
     if submitted_1:
-        create_network(minimum_similarity)
-        HtmlFile = open('graph.html', 'r', encoding = 'utf-8')
-        source_code = HtmlFile.read()
-        components.html(source_code, height=800, width=800)
-
+        #create_network(minimum_similarity)
+        #HtmlFile = open('graph.html', 'r', encoding = 'utf-8')
+        #source_code = HtmlFile.read()
+        #components.html(source_code, height=800, width=800)
+        st.write("This feature is not available on Streamlit Cloud, please deploy this repo locally in Docker.")
     if submitted_2:
-        create_for_download(minimum_similarity)
-        with open("similarity_analysis.gexf", 'r') as file:
-            st.download_button("Download Results", data=file, file_name = 'similarity_results.gexf')
+        #create_for_download(minimum_similarity)
+        #with open("similarity_analysis.gexf", 'r') as file:
+        #    st.download_button("Download Results", data=file, file_name = 'similarity_results.gexf')
+        st.write("This feature is not available on Streamlit Cloud, please deploy this repo locally in Docker.")
 
-    """
+
     st.session_state['pipeline'] = pipeline
     
 except:
