@@ -45,7 +45,7 @@ try:
             submitted_2 = st.form_submit_button("Prep Full Dataset for Download")
         with col3:
             with st.expander("Advanced Options"):
-                st.markdown("The slider below sets the minimum similarity between two documents required for them to be "linked" in the network. To cut down on processing time, I have limited these options to relatively high similarity, however different situations call for different settings.")
+                st.markdown("The slider below sets the minimum similarity between two documents required for them to be 'linked' in the network. To cut down on processing time, I have limited these options to relatively high similarity, however different situations call for different settings.")
                 minimum_similarity = st.slider("Minimum Similarity for Linkage", min_value = 0.3, max_value =0.99, value = 0.45)
 
     if submitted_1:
