@@ -1,0 +1,13 @@
+pandas==2.0.3
+networkx==2.5
+scikit-learn
+nltk==3.8.1
+openpyxl==3.1.2
+pyvis==0.3.2
+pyldavis
+plotly
+streamlit==1.24.0
+numpy==1.25.0
+seaborn==0.12.2
+wordcloud==1.9.2
+colorlover==0.3.0
