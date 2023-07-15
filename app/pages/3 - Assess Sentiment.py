@@ -13,7 +13,7 @@ def generate_sentiment_visualization():
 try:
     pipeline = st.session_state['pipeline']
 
-    st.write("This is some explainer text")
+    st.write("With the topics defined, we can now explore the tone and intensity of language used in each topic. This analysis uses the [Vader Lexicon](https://medium.com/@piocalderon/vader-sentiment-analysis-explained-f1c4f9101cd9), a widely used model for media analysis.")
     with st.form("Generate Sentiment Breakdown"):
         submitted = st.form_submit_button("Generate Sentiment Breakdown")
 

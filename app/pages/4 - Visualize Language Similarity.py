@@ -13,9 +13,9 @@ try:
     This stage of analysis is optional, but can be helpful in certain situations--particularly when looking for
     memetic content or the prevelance of specific talking points.
 
-    Unfortunately, network visualizations are highly processor-intensive to render, and due to the limited resources available on this community server, this stage of analysis will not run without crashing.
+    Unfortunately, network visualizations are highly processor-intensive to render, and due to the limited resources available on this community server, this stage of analysis will not run without crashing. Instead, I've added a pre-rendered version of the network below with 12 topics.
 
-    If you would like to run this analysis yourself, please download this repo and deploy locally in Docker.""")
+    If you would like to run this analysis yourself, please download this repository and deploy locally in Docker.""")
 
 
     def create_network(minimum_similarity):
@@ -60,6 +60,10 @@ try:
         #    st.download_button("Download Results", data=file, file_name = 'similarity_results.gexf')
         st.write("This feature is not available on Streamlit Cloud, please deploy this repo locally in Docker.")
 
+    st.markdown("""Example network using 12 topics""")
+    htmlFile = open('app/example_graph.html', 'r', encoding='utf-8')
+    source_code=htmlFile.read()
+    components.html(source_code, height=800, width=1000)
 
     st.session_state['pipeline'] = pipeline
     
