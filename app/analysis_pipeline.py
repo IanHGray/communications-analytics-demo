@@ -3,6 +3,7 @@ import pandas as pd
 import math
 import nltk
 from nltk.tokenize import word_tokenize
+from nltk.tokenize import RegexpTokenizer
 from nltk.corpus import stopwords
 from nltk.stem.wordnet import WordNetLemmatizer
 from nltk.sentiment import SentimentIntensityAnalyzer
@@ -34,6 +35,7 @@ stopwords = set(stopwords.words('english'))
 punctuation = set(string.punctuation)
 add_punctuation = ['“', '‘', '‘', '’', '`', '``', '‘‘'] #There are some punctuation quirks in the example dataset. Opted to pull them out individually rather than regex.
 punctuation.update(add_punctuation)
+regex_tokenizer = RegexpTokenizer(r'\w+')
 sid = SentimentIntensityAnalyzer()
 
 class AnalysisPipeline:
@@ -79,7 +81,8 @@ class AnalysisPipeline:
         for text in self.corpus:
             tokenized = word_tokenize(text)
             lowered = [i.lower() for i in tokenized]
-            punctuation_removed = [i for i in lowered if i not in punctuation]
+            is_alpha = [i for i in lowered if i.isalpha()] 
+            punctuation_removed = [i for i in is_alpha if i not in punctuation]
             stopwords_removed = [i for i in punctuation_removed if i not in stopwords]
             lemmatized = [lemmatizer.lemmatize(word) for word in stopwords_removed]
             self.cleaned_corpus.append(lemmatized)
